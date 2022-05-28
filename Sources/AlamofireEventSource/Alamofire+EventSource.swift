@@ -10,15 +10,8 @@ import Alamofire
 
 extension Session {
     
-    public func eventSourceRequest(_ convertible: URLConvertible, method: HTTPMethod = .get, headers: HTTPHeaders? = nil, lastEventID: String? = nil) -> DataStreamRequest {
-        return streamRequest(convertible, headers: headers) { request in
-            request.timeoutInterval = TimeInterval(Int32.max)
-            request.headers.add(name: "Accept", value: "text/event-stream")
-            request.headers.add(name: "Cache-Control", value: "no-cache")
-            if let lastEventID = lastEventID {
-                request.headers.add(name: "Last-Event-ID", value: lastEventID)
-            }
-        }
+    public func eventSourceRequest(_ convertible: URLRequestConvertible) -> DataStreamRequest? {
+        streamRequest(convertible)
     }
     
 }

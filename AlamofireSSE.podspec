@@ -5,13 +5,13 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 Pod::Spec.new do |s|
-  s.name                    = "AlamofireEventSource"
-  s.version                 = "1.2.1"
+  s.name                    = "AlamofireSSE"
+  s.version                 = "1.2.2"
   s.summary                 = "Alamofire plugin for Server-Sent Events (SSE)."
   s.homepage                = "https://github.com/dclelland/AlamofireEventSource"
   s.license                 = { :type => 'MIT' }
   s.author                  = { "Daniel Clelland" => "daniel.clelland@gmail.com" }
-  s.source                  = { :git => "https://github.com/dclelland/AlamofireEventSource.git", :tag => "1.2.1" }
+  s.source                  = { :git => "https://github.com/IsaAliev/AlamofireEventSource.git", :tag => "1.2.2" }
   s.source_files            = 'Sources/AlamofireEventSource/**/*.swift'
   s.requires_arc            = true
   s.swift_versions          = ['5.1', '5.2']
