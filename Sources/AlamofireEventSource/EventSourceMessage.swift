@@ -53,20 +53,16 @@ extension EventSourceMessage {
         internal var value: String
         
         internal init?(parsing string: String) {
-            let scanner = Scanner(string: string)
+            let components = string.split(separator: ":").map(String.init)
             
-            guard let key = scanner.scanUpToString(":").flatMap(Key.init(rawValue:)) else {
-                return nil
-            }
-            
-            _ = scanner.scanString(":")
-            
-            guard let value = scanner.scanUpToString("\n") else {
-                return nil
-            }
+            guard components.count > 1,
+                  let keyStr = components.first,
+                  let key = Key(rawValue: keyStr),
+                  let value = components[1...].joined(separator: ":").split(separator: "\n").first
+            else { return nil }
             
             self.key = key
-            self.value = value
+            self.value = String(value)
         }
         
     }
